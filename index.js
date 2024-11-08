@@ -1,5 +1,6 @@
 let express = require("express");
 let app = new express();                                                                     
+app.set("view engine","ejs")
 
 // set up database connection
 const knex = require("knex")({
@@ -17,13 +18,7 @@ app.get("/",(req,res) => {
 knex
 .select()
 .from("characters")
-.then((result) => {
-let html = "<body><ul>";
-for (let i=0;i<result.length;i++) {
-html += "<li>" + result[i].name + "</li>";
-}
-html += "</body>"
-res.send(html);
+.then((result) => {res.render("index", {aCharacters: result});
  }); 
 });
 app.listen(3000);

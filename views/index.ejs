@@ -1,0 +1,24 @@
+<html>
+<head>
+<style>
+table, td, th {
+border: 1px solid orange;
+}
+</style>
+</head>
+<body>
+Here are the MarioKart Characters and their Sizes: <br /><br />
+<table>
+<thead>
+<th>Character</th>
+<th>Size</th>
+</thead>
+<% for (let iCount=0; iCount < aCharacters.length; iCount++) { %>
+<tr>
+<td><%= aCharacters[iCount].name %></td>
+<td><%= aCharacters[iCount].size %></td>
+</tr>
+<% } %>
+</table>
+</body>
+</html>
